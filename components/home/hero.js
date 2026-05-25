@@ -1,140 +1,79 @@
 'use client';
-import HeroIcons from './icons';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { SiGithub } from 'react-icons/si';
-import { IoDocumentText } from 'react-icons/io5';
+import { FaCalendarAlt, FaBalanceScale } from 'react-icons/fa';
 
-import { useEffect, useState } from 'react';
 export default function Hero({ locale, CTALocale }) {
-	const [tilt, setTilt] = useState(45);
-	const [duration, setDuration] = useState(0.8);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			const maxTilt = 45; // 最大倾斜角度
-			const scrollY = window.scrollY;
-			const tiltValue = Math.max(maxTilt - scrollY / 8, 0); // 根据滚动值调整
-			setTilt(tiltValue);
-			setDuration(0.3);
-		};
-
-		window.addEventListener('scroll', handleScroll);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
-
 	return (
-		<>
-			<section
-				className='relative z-10 flex flex-col items-start md:items-center py-10 md:py-20 overflow-hidden'
-				style={{ perspective: '800px' }}
+		<section
+			id='inicio'
+			className='relative flex flex-col items-start md:items-center py-20 md:py-32 overflow-hidden'
+		>
+			<motion.div
+				initial={{ opacity: 0, y: 40 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ delay: 0.2, type: 'spring', stiffness: 80, damping: 12 }}
+				className='relative z-10 w-full md:w-9/12 mx-auto text-center'
 			>
-				<motion.div
-					initial={{ opacity: 0, y: 50 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.4, type: 'spring', stiffness: 100, damping: 10 }}
-				>
-					<h1 className='font-bold text-5xl md:text-7xl bg-gradient-to-r from-base-content from-50% to-[#9c9c9c] text-center bg-clip-text text-transparent !leading-[1.25em] mb-5'>
-						{locale.h1}
-					</h1>
-				</motion.div>
+				<div className='inline-flex items-center gap-2 bg-secondary/10 border border-secondary/30 text-secondary px-4 py-1.5 rounded-full text-sm font-medium mb-6'>
+					<FaBalanceScale size={12} />
+					Advocacia especializada há mais de 15 anos
+				</div>
 
-				<motion.div
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{
-						delay: 0.2,
-						duration: 1,
-					}}
-				>
-					<h2 className='w-full md:w-10/12 mx-auto text-xl md:text-2xl text-base-content/80 md:text-center mb-5 md:mb-10'>{locale.h2}</h2>
+				<h1 className='font-bold text-4xl md:text-6xl text-primary !leading-[1.2em] mb-6'>
+					{locale.h1}
+				</h1>
 
-					<div className='w-full md:w-8/12 mx-auto flex flex-col md:flex-row md:items-center justify-between gap-y-5'>
-						<HeroIcons />
+				<p className='w-full md:w-8/12 mx-auto text-lg md:text-xl text-base-content/70 text-center mb-10 leading-relaxed'>
+					{locale.h2}
+				</p>
 
-						<div className='flex flex-col md:flex-row gap-2'>
-							<a
-								title='get source code'
-								className='btn btn-sm md:btn-md btn-base border-none hover:ring-1 ring-base-content text-base-100 hover:text-base-content bg-base-content hover:bg-base-100 rounded-full'
-								href='https://github.com/huglemon/inwind-landing-page'
-							>
-								<SiGithub />
-								{CTALocale.btn1}
-							</a>
-							<a
-								title='get source code'
-								className='btn btn-sm md:btn-md btn-base rounded-full'
-								href='https://huglemon.com/blog/i-open-sourced-a-saas-landing-page'
-							>
-								<IoDocumentText /> {CTALocale.btn2}
-							</a>
-						</div>
-					</div>
-				</motion.div>
-				<motion.div
-					initial={{ opacity: 0, y: 100, rotateX: '0deg' }}
-					animate={{ opacity: 1, y: 0, rotateX: `${tilt}deg` }}
-					transition={{
-						delay: duration == 0.8 ? 0.4 : 0,
-						duration: duration,
-					}}
-					className='w-full'
-				>
-					<Image
-						width={1024}
-						height={600}
-						src={'/og.png'}
-						className='hidden md:flex w-full -mt-10'
-						alt='app demo'
-					/>
-				</motion.div>
-			</section>
+				<div className='flex flex-col sm:flex-row gap-4 justify-center'>
+					<a
+						href='#contato'
+						className='inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold text-base px-8 py-3.5 rounded-full transition-all shadow-lg hover:shadow-xl'
+					>
+						<FaCalendarAlt size={15} />
+						{CTALocale.btn1}
+					</a>
+					<a
+						href='#areas'
+						className='inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold text-base px-8 py-3.5 rounded-full transition-all'
+					>
+						{CTALocale.btn2}
+					</a>
+				</div>
+			</motion.div>
 
-			<div className='absolute w-[100%] left-[0] top-[10%] md:top-[20%] h-[300px]'>
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
-					id='patternId'
-					width='100%'
-					height='100%'
-				>
+			<div className='hidden md:grid grid-cols-3 gap-6 mt-20 w-full md:w-10/12 mx-auto relative z-10'>
+				{[
+					{ number: '15+', label: 'Anos de Experiência' },
+					{ number: '2.000+', label: 'Casos Concluídos' },
+					{ number: '98%', label: 'Clientes Satisfeitos' },
+				].map((stat, i) => (
+					<motion.div
+						key={i}
+						initial={{ opacity: 0, y: 30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.4 + i * 0.15 }}
+						className='text-center bg-base-100 border border-base-300 rounded-2xl py-8 px-4 shadow-sm'
+					>
+						<p className='text-4xl font-bold text-secondary mb-1'>{stat.number}</p>
+						<p className='text-sm text-base-content/60 font-medium'>{stat.label}</p>
+					</motion.div>
+				))}
+			</div>
+
+			<div className='absolute w-full left-0 top-0 h-full -z-0 pointer-events-none'>
+				<div className='absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5'></div>
+				<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' className='opacity-20'>
 					<defs>
-						<pattern
-							id='a'
-							patternUnits='userSpaceOnUse'
-							width='20'
-							height='20'
-							patternTransform='scale(3) rotate(0)'
-						>
-							<rect
-								x='0'
-								y='0'
-								width='100%'
-								height='100%'
-								fill='hsla(0, 0%, 100%, 0)'
-							></rect>
-							<path
-								d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z'
-								strokeWidth='0.5'
-								className='stroke-base-content/50'
-								fill='none'
-							></path>
+						<pattern id='grid' patternUnits='userSpaceOnUse' width='40' height='40'>
+							<path d='M 40 0 L 0 0 0 40' fill='none' stroke='#0f2044' strokeWidth='0.5' />
 						</pattern>
 					</defs>
-					<rect
-						width='800%'
-						height='800%'
-						transform='translate(0,0)'
-						fill='url(#a)'
-					></rect>
+					<rect width='100%' height='100%' fill='url(#grid)' />
 				</svg>
-				<div className='bg-gradient-to-b from-base-100  from-20% to-transparent absolute inset-0 '></div>
-				<div className='bg-gradient-to-l from-base-100  from-1% to-transparent to-30% absolute inset-0'></div>
-				<div className='bg-gradient-to-r from-base-100  from-1% to-transparent to-30% absolute inset-0'></div>
-				<div className='bg-gradient-to-t from-base-100  from-1% to-transparent to-30% absolute inset-0'></div>
 			</div>
-		</>
+		</section>
 	);
 }

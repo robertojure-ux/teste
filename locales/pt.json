@@ -1,0 +1,48 @@
+{
+	"Hero": {
+		"h1": "Defendemos Seus Direitos com Excelência e Dedicação",
+		"h2": "Assessoria jurídica especializada para proteger o que mais importa para você. Atuamos com ética, comprometimento e resultados comprovados há mais de 15 anos."
+	},
+	"CTAButton": {
+		"btn1": "Agende uma Consulta",
+		"btn2": "Nossas Áreas de Atuação"
+	},
+	"Feature": {
+		"h2": "Áreas de Atuação",
+		"h3": "Soluções Jurídicas para Cada Necessidade",
+		"description1": "Oferecemos atendimento personalizado nas principais áreas do direito,",
+		"description2": "com profissionalismo e dedicação",
+		"description3": "para garantir os melhores resultados aos nossos clientes."
+	},
+	"Testimonial": {
+		"h2": "Depoimentos",
+		"h3": "O Que Dizem Nossos Clientes",
+		"description1": "A confiança dos nossos clientes é o nosso maior patrimônio.",
+		"description2": "Conheça alguns depoimentos",
+		"description3": " de quem já contou com os nossos serviços."
+	},
+	"Faq": {
+		"h2": "Dúvidas Frequentes",
+		"h3": "Perguntas Frequentes",
+		"description": "Tire suas principais dúvidas sobre nossos serviços jurídicos."
+	},
+	"CTA": {
+		"h2": "Precisa de Orientação Jurídica?",
+		"h3": "Entre em contato agora e agende uma consulta com nossos especialistas."
+	},
+	"About": {
+		"h1": "Sobre o Escritório",
+		"h2": "Comprometidos com a justiça e com os direitos dos nossos clientes há mais de 15 anos.",
+		"why": "Por que nos escolher",
+		"why_content": "Combinamos experiência, ética e dedicação para oferecer a melhor assessoria jurídica. Cada caso é tratado com atenção individualizada, garantindo que você se sinta amparado em todas as etapas do processo.",
+		"team": "Nossa Equipe",
+		"team_content": "Nosso time é formado por advogados especializados, comprometidos com a excelência e a atualização constante das legislações vigentes."
+	},
+	"Blog": {
+		"title": "Artigos",
+		"description": "Informação jurídica de qualidade para você se manter atualizado.",
+		"side1": "Descrição",
+		"side2": "Artigos em destaque",
+		"side3": "Atualizados recentemente"
+	}
+}

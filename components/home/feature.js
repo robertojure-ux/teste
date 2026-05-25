@@ -9,7 +9,7 @@ export default function Feature({ locale, langName = 'en' }) {
 
 	return (
 		<section
-			id='feature'
+			id='areas'
 			className='relative py-10 md:py-20'
 		>
 			<motion.div
